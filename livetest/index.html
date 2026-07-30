@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Depot — Zugang</title>
+<style>
+body{background:#0e1116;color:#e8eaed;font:16px -apple-system,'Segoe UI',sans-serif;
+display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+.box{background:#1a1f27;border-radius:16px;padding:34px;max-width:340px;width:90%;
+text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+h1{font-size:18px;margin:0 0 6px} p{color:#9aa0a6;font-size:13px;margin:0 0 18px}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#0e1116;
+color:#e8eaed;font-size:16px;text-align:center;letter-spacing:1px}
+button{width:100%;margin-top:12px;padding:12px;border:none;border-radius:10px;
+background:#4a90d9;color:#fff;font-size:15px;font-weight:600;cursor:pointer}
+.fehler{color:#f6465d;font-size:13px;margin-top:10px;min-height:18px}
+</style></head><body>
+<div class="box"><h1>Live-Test Top-25</h1><p>Bitte Passwort eingeben</p>
+<input id="pw" type="password" autofocus placeholder="Passwort">
+<button onclick="entsperren()">Öffnen</button><div class="fehler" id="fehler"></div></div>
+<script>
+const P = {"salt": "NvFaro+8f1FsQbqwhZROQw==", "iv": "MgUr8FYMqEX4IheS", "iter": 300000, "daten": "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"};
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function entschluesseln(pw){
+  const km = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw),
+    "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    {name:"PBKDF2", salt:b64(P.salt), iterations:P.iter, hash:"SHA-256"},
+    km, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+  const klar = await crypto.subtle.decrypt({name:"AES-GCM", iv:b64(P.iv)}, key, b64(P.daten));
+  return new TextDecoder().decode(klar);
+}
+async function anzeigen(pw){
+  const html = await entschluesseln(pw);
+  localStorage.setItem("depot_pw", pw);
+  document.open(); document.write(html); document.close();
+}
+async function entsperren(){
+  const pw = document.getElementById("pw").value;
+  try { await anzeigen(pw); }
+  catch(e){ document.getElementById("fehler").textContent = "Falsches Passwort"; }
+}
+document.getElementById("pw").addEventListener("keydown", e => {
+  if(e.key === "Enter") entsperren(); });
+const gespeichert = localStorage.getItem("depot_pw");
+if (gespeichert) anzeigen(gespeichert).catch(() => localStorage.removeItem("depot_pw"));
+</script></body></html>
